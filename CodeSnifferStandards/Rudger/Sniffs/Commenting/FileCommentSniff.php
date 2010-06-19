@@ -24,13 +24,14 @@ if (class_exists('PHP_CodeSniffer_CommentParser_ClassCommentParser', true) === f
  * Verifies that :
  * <ul>
  *  <li>A file doc comment exists.</li>
- *  <li>There is no blank line between the open tag and the file comment.</li>
- *  <li>Short description ends with a full stop.</li>
  *  <li>There is a blank line after the short description.</li>
- *  <li>Each paragraph of the long description ends with a full stop.</li>
  *  <li>There is a blank line between the description and the tags.</li>
  *  <li>Check the order, indentation and content of each tag.</li>
  *  <li>There is exactly one blank line after the file comment.</li>
+ *  
+ *  <li>There is no blank line between the open tag and the file comment.</li>  
+ *  <li>Short description ends with a full stop.</li>
+ *  <li>Each paragraph of the long description ends with a full stop.</li>
  * </ul>
  *
  * @category  PHP
@@ -213,11 +214,11 @@ class Rudger_Sniffs_Commenting_FileCommentSniff implements PHP_CodeSniffer_Sniff
 
                 $newlineCount += $newlineBetween;
 
-                $testLong = trim($long);
-                if (preg_match('|[A-Z]|', $testLong[0]) === 0) {
-                    $error = 'File comment long description must start with a capital letter';
-                    $phpcsFile->addError($error, ($commentStart + $newlineCount));
-                }
+//                $testLong = trim($long);
+//                if (preg_match('|[A-Z]|', $testLong[0]) === 0) {
+//                    $error = 'File comment long description must start with a capital letter';
+//                    $phpcsFile->addError($error, ($commentStart + $newlineCount));
+//                }
             }//end if
 
             // Exactly one blank line before tags.
@@ -243,15 +244,15 @@ class Rudger_Sniffs_Commenting_FileCommentSniff implements PHP_CodeSniffer_Sniff
                 $phpcsFile->addError($error, ($commentStart + 1));
             }
 
-            if (preg_match('|[A-Z]|', $testShort[0]) === 0) {
-                $error = 'File comment short description must start with a capital letter';
-                $phpcsFile->addError($error, ($commentStart + 1));
-            }
+//            if (preg_match('|[A-Z]|', $testShort[0]) === 0) {
+//                $error = 'File comment short description must start with a capital letter';
+//                $phpcsFile->addError($error, ($commentStart + 1));
+//            }
 
-            if ($lastChar !== '.') {
-                $error = 'File comment short description must end with a full stop';
-                $phpcsFile->addError($error, ($commentStart + 1));
-            }
+//            if ($lastChar !== '.') {
+//                $error = 'File comment short description must end with a full stop';
+//                $phpcsFile->addError($error, ($commentStart + 1));
+//            }
 
             // Check for unknown/deprecated tags.
             $unknownTags = $this->commentParser->getUnknown();

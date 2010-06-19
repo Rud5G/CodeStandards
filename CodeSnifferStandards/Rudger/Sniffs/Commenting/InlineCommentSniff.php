@@ -1,29 +1,16 @@
 <?php
-/**
- * Rudger_Sniffs_Commenting_InlineCommentSniff.
- *
- * PHP version 5
- *
- * @category  PHP
- * @package   PHP_CodeSniffer
- * @author    Greg Sherwood <gsherwood@squiz.net>
- * @author    Marc McIntyre <mmcintyre@squiz.net>
- * @copyright 2006 Rudger Pty Ltd (ABN 77 084 670 600)
- * @license   http://matrix.squiz.net/developer/tools/php_cs/licence BSD Licence
- * @version   CVS: $Id: InlineCommentSniff.php 291580 2009-12-02 03:40:18Z squiz $
- * @link      http://pear.php.net/package/PHP_CodeSniffer
- */
 
 /**
  * Rudger_Sniffs_Commenting_InlineCommentSniff.
  *
- * Checks that there is adequate spacing between comments.
+ * Checks that there is adequate spac		ing between comments.
  *
  * @category  PHP
  * @package   PHP_CodeSniffer
  * @author    Greg Sherwood <gsherwood@squiz.net>
  * @author    Marc McIntyre <mmcintyre@squiz.net>
- * @copyright 2006 Rudger Pty Ltd (ABN 77 084 670 600)
+ * @author    Rudger Gravestein <rudgergravestein@gmail.com>
+ * @copyright 2006 Squiz Pty Ltd (ABN 77 084 670 600)
  * @license   http://matrix.squiz.net/developer/tools/php_cs/licence BSD Licence
  * @version   Release: 1.2.2
  * @link      http://pear.php.net/package/PHP_CodeSniffer

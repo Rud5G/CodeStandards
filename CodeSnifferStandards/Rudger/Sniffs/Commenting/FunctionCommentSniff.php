@@ -26,17 +26,19 @@ if (class_exists('PHP_CodeSniffer_CommentParser_FunctionCommentParser', true) ==
  * <ul>
  *  <li>A comment exists</li>
  *  <li>There is a blank newline after the short description</li>
- *  <li>There is a blank newline between the long and short description</li>
  *  <li>There is a blank newline between the long description and tags</li>
  *  <li>Parameter names represent those in the method</li>
  *  <li>Parameter comments are in the correct order</li>
  *  <li>Parameter comments are complete</li>
  *  <li>A type hint is provided for array and custom class</li>
  *  <li>Type hint matches the actual variable/class type</li>
- *  <li>A blank line is present before the first and after the last parameter</li>
+ *  <li>A blank line is present before the parameters</li>
  *  <li>A return type exists</li>
  *  <li>Any throw tag must have a comment</li>
  *  <li>The tag order and indentation are correct</li>
+ *  
+ *  <li>There is a blank newline between the long and short description</li>
+ *  <li>A blank line is present before the first and after the last parameter</li>
  * </ul>
  *
  * @category  PHP
@@ -239,10 +241,10 @@ class Rudger_Sniffs_Commenting_FunctionCommentSniff implements PHP_CodeSniffer_S
             $newlineCount += $newlineBetween;
 
             $testLong = trim($long);
-            if (preg_match('|[A-Z]|', $testLong[0]) === 0) {
-                $error = 'Function comment long description must start with a capital letter';
-                $phpcsFile->addError($error, ($commentStart + $newlineCount));
-            }
+//            if (preg_match('|[A-Z]|', $testLong[0]) === 0) {
+//                $error = 'Function comment long description must start with a capital letter';
+//                $phpcsFile->addError($error, ($commentStart + $newlineCount));
+//            }
         }//end if
 
         // Exactly one blank line before tags.
@@ -268,15 +270,15 @@ class Rudger_Sniffs_Commenting_FunctionCommentSniff implements PHP_CodeSniffer_S
             $phpcsFile->addError($error, ($commentStart + 1));
         }
 
-        if (preg_match('|[A-Z]|', $testShort[0]) === 0) {
-            $error = 'Function comment short description must start with a capital letter';
-            $phpcsFile->addError($error, ($commentStart + 1));
-        }
+//        if (preg_match('|[A-Z]|', $testShort[0]) === 0) {
+//            $error = 'Function comment short description must start with a capital letter';
+//            $phpcsFile->addError($error, ($commentStart + 1));
+//        }
 
-        if ($lastChar !== '.') {
-            $error = 'Function comment short description must end with a full stop';
-            $phpcsFile->addError($error, ($commentStart + 1));
-        }
+//        if ($lastChar !== '.') {
+//            $error = 'Function comment short description must end with a full stop';
+//            $phpcsFile->addError($error, ($commentStart + 1));
+//        }
 
         // Check for unknown/deprecated tags.
         $unknownTags = $this->commentParser->getUnknown();
@@ -323,16 +325,16 @@ class Rudger_Sniffs_Commenting_FunctionCommentSniff implements PHP_CodeSniffer_S
             }
 
             $content = $since->getContent();
-            if (empty($content) === true) {
-                $error = 'Version number missing for @since tag in function comment';
-                $this->currentFile->addError($error, $errorPos);
-                return;
-            } else if ($content !== '%release_version%') {
-                if (preg_match('/^([0-9]+)\.([0-9]+)\.([0-9]+)/', $content) === 0) {
-                    $error = 'Expected version number to be in the form x.x.x in @since tag';
-                    $this->currentFile->addError($error, $errorPos);
-                }
-            }
+//            if (empty($content) === true) {
+//                $error = 'Version number missing for @since tag in function comment';
+//                $this->currentFile->addError($error, $errorPos);
+//                return;
+//            } else if ($content !== '%release_version%') {
+//                if (preg_match('/^([0-9]+)\.([0-9]+)\.([0-9]+)/', $content) === 0) {
+//                    $error = 'Expected version number to be in the form x.x.x in @since tag';
+//                    $this->currentFile->addError($error, $errorPos);
+//                }
+//            }
 
             $spacing        = substr_count($since->getWhitespaceBeforeContent(), ' ');
             $return         = $this->commentParser->getReturn();
