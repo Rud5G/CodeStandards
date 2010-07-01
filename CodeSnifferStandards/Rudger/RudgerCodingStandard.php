@@ -47,11 +47,8 @@ class PHP_CodeSniffer_Standards_Rudger_RudgerCodingStandard extends PHP_CodeSnif
             , 'Rudger/Sniffs/Commenting/LongConditionClosingCommentSniff.php' 
             , 'Rudger/Sniffs/Commenting/PostStatementCommentSniff.php' 
             , 'Rudger/Sniffs/Commenting/VariableCommentSniff.php'
-                        
-            /*
-             * not ready yet.
-             */
-            
+
+
             , 'Rudger/Sniffs/CodeAnalysis/EmptyStatementSniff.php'
             , 'Rudger/Sniffs/CodeAnalysis/ForLoopWithTestFunctionCallSniff.php'
             , 'Rudger/Sniffs/CodeAnalysis/JumbledIncrementerSniff.php'
@@ -59,6 +56,12 @@ class PHP_CodeSniffer_Standards_Rudger_RudgerCodingStandard extends PHP_CodeSnif
             , 'Rudger/Sniffs/CodeAnalysis/UnusedFunctionParameterSniff.php'
             , 'Rudger/Sniffs/CodeAnalysis/UnnecessaryFinalModifierSniff.php'
             , 'Rudger/Sniffs/CodeAnalysis/UselessOverridingMethodSniff.php'
+            
+            /*
+             * not ready yet.
+             */
+            
+            , 'Rudger/Sniffs/PHP/ForbiddenFunctionsSniff.php'
             
         );
     
@@ -81,7 +84,25 @@ class PHP_CodeSniffer_Standards_Rudger_RudgerCodingStandard extends PHP_CodeSnif
            );
     }
     
-}
+} //End Class.
+
+/**
+ * @desc Example: Ignoring a file using a comment
+ */
+// @codingStandardsIgnoreFile
+/**
+ * @desc End example. 
+ */
+
+/**
+ * @desc Example: Ignoring parts of a file using comments
+ */
+// @codingStandardsIgnoreStart
+// some ignored code.
+// @codingStandardsIgnoreEnd
+/**
+ * @desc End example. 
+ */
 
 /**
  * Squiz
