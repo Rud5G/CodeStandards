@@ -3,7 +3,7 @@
 /**
  * Rudger_Sniffs_Commenting_InlineCommentSniff.
  *
- * Checks that there is adequate spac		ing between comments.
+ * Checks that there is adequate spacing between comments.
  *
  * @category  PHP
  * @package   PHP_CodeSniffer

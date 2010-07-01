@@ -6,10 +6,10 @@
  *
  * @category  PHP
  * @package   PHP_CodeSniffer
- * @author    Your Name <you@domain.net>
+ * @author    Rudger Gravestein <rudgergravestein@gmail.com>
  * @license   http://matrix.squiz.net/developer/tools/php_cs/licence BSD Licence
  * @version   SVN: $Id: coding-standard-tutorial.xml,v 1.9 2008-10-09 15:16:47 cweiske Exp $
- * @link      http://Rudger.php.net/package/PHP_CodeSniffer
+ * @link      http://pear.php.net/package/PHP_CodeSniffer
  */
 
 if (class_exists('PHP_CodeSniffer_Standards_CodingStandard', true) === false) {
@@ -21,34 +21,83 @@ if (class_exists('PHP_CodeSniffer_Standards_CodingStandard', true) === false) {
  *
  * @category  PHP
  * @package   PHP_CodeSniffer
- * @author    Your Name <you@domain.net>
+ * @author    Rudger Gravestein <rudgergravestein@gmail.com>
  * @license   http://matrix.squiz.net/developer/tools/php_cs/licence BSD Licence
  * @version   Release: @package_version@
- * @link      http://Rudger.php.net/package/PHP_CodeSniffer
+ * @link      http://pear.php.net/package/PHP_CodeSniffer
  */
 class PHP_CodeSniffer_Standards_Rudger_RudgerCodingStandard extends PHP_CodeSniffer_Standards_CodingStandard
 {
 
-    public function getIncludedSniffs ()
-    {
+    /**
+     * defines the included sniffs for this standard.
+     * @return array
+     */
+    public function getIncludedSniffs () {
         return array(
-            'Rudger/Sniffs/Commenting/BlockCommentSniff.php', 
-            'Rudger/Sniffs/Commenting/ClassCommentSniff.php', 
-            'Rudger/Sniffs/Commenting/ClosingDeclarationCommentSniff.php', 
-            'Rudger/Sniffs/Commenting/DocCommentAlignmentSniff.php', 
-            'Rudger/Sniffs/Commenting/EmptyCatchCommentSniff.php', 
-            'Rudger/Sniffs/Commenting/FileCommentSniff.php', 
-            'Rudger/Sniffs/Commenting/FunctionCommentSniff.php', 
-            'Rudger/Sniffs/Commenting/FunctionCommentThrowTagSniff.php', 
-            'Rudger/Sniffs/Commenting/InlineCommentSniff.php', 
-            'Rudger/Sniffs/Commenting/LongConditionClosingCommentSniff.php', 
-            'Rudger/Sniffs/Commenting/PostStatementCommentSniff.php', 
-            'Rudger/Sniffs/Commenting/VariableCommentSniff.php'
+              'Rudger/Sniffs/Commenting/BlockCommentSniff.php' 
+            , 'Rudger/Sniffs/Commenting/ClassCommentSniff.php' 
+            , 'Rudger/Sniffs/Commenting/ClosingDeclarationCommentSniff.php' 
+            , 'Rudger/Sniffs/Commenting/DocCommentAlignmentSniff.php' 
+            , 'Rudger/Sniffs/Commenting/EmptyCatchCommentSniff.php' 
+            , 'Rudger/Sniffs/Commenting/FileCommentSniff.php' 
+            , 'Rudger/Sniffs/Commenting/FunctionCommentSniff.php' 
+            , 'Rudger/Sniffs/Commenting/FunctionCommentThrowTagSniff.php' 
+            , 'Rudger/Sniffs/Commenting/InlineCommentSniff.php' 
+            , 'Rudger/Sniffs/Commenting/LongConditionClosingCommentSniff.php' 
+            , 'Rudger/Sniffs/Commenting/PostStatementCommentSniff.php' 
+            , 'Rudger/Sniffs/Commenting/VariableCommentSniff.php'
+                        
+            /*
+             * not ready yet.
+             */
+            
+            , 'Rudger/Sniffs/CodeAnalysis/EmptyStatementSniff.php'
+            , 'Rudger/Sniffs/CodeAnalysis/ForLoopWithTestFunctionCallSniff.php'
+            , 'Rudger/Sniffs/CodeAnalysis/JumbledIncrementerSniff.php'
+            , 'Rudger/Sniffs/CodeAnalysis/UnconditionalIfStatementSniff.php'
+            , 'Rudger/Sniffs/CodeAnalysis/UnusedFunctionParameterSniff.php'
+            , 'Rudger/Sniffs/CodeAnalysis/UnnecessaryFinalModifierSniff.php'
+            , 'Rudger/Sniffs/CodeAnalysis/UselessOverridingMethodSniff.php'
+            
         );
     
     }
+    
+    
+    /**
+     * Return a list of external sniffs to exclude from this standard.
+     *
+     * This coding standard uses none PEAR/Squiz/Zend sniffs.
+     *
+     * @return array
+     */
+    public function getExcludedSniffs()
+    {
+        return array(
+            'PEAR',
+            'Squiz',
+            'Zend',
+           );
+    }
+    
 }
 
+/**
+ * Squiz
+ * Squiz/Sniffs
+ * Squiz/Sniffs/Debug
+ * Squiz/Sniffs/Files
+ * Squiz/Sniffs/NamingConventions
+ */
+
+/**
+ * Zend
+ * Zend/Sniffs
+ * Zend/Sniffs/Debug
+ * Zend/Sniffs/Files
+ * Zend/Sniffs/NamingConventions
+ */
 
 //            'Rudger/Sniffs/CodeAnalysis/EmptyStatementSniff.php', 
 //            'Rudger/Sniffs/CodeAnalysis/ForLoopShouldBeWhileLoopSniff.php', 
