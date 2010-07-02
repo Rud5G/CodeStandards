@@ -34,6 +34,15 @@ class PHP_CodeSniffer_Standards_Rudger_RudgerCodingStandard extends PHP_CodeSnif
      * @return array
      */
     public function getIncludedSniffs () {
+        
+        print_r (get_declared_classes());
+        print_r (get_defined_functions());
+        print_r (get_defined_vars());
+        
+        print_r ($_SERVER);
+        
+        die();
+        
         return array(
               'Rudger/Sniffs/Commenting/BlockCommentSniff.php' 
             , 'Rudger/Sniffs/Commenting/ClassCommentSniff.php' 
@@ -120,15 +129,6 @@ class PHP_CodeSniffer_Standards_Rudger_RudgerCodingStandard extends PHP_CodeSnif
  * Zend/Sniffs/NamingConventions
  */
 
-//            'Rudger/Sniffs/CodeAnalysis/EmptyStatementSniff.php', 
-//            'Rudger/Sniffs/CodeAnalysis/ForLoopShouldBeWhileLoopSniff.php', 
-//            'Rudger/Sniffs/CodeAnalysis/ForLoopWithTestFunctionCallSniff.php', 
-//            'Rudger/Sniffs/CodeAnalysis/JumbledIncrementerSniff.php', 
-//            'Rudger/Sniffs/CodeAnalysis/UnconditionalIfStatementSniff.php', 
-//            'Rudger/Sniffs/CodeAnalysis/UnnecessaryFinalModifierSniff.php', 
-//            'Rudger/Sniffs/CodeAnalysis/UselessOverridingMethodSniff.php', 
-//            
-//            
 //            'Rudger/Sniffs/ControlStructures/InlineControlStructureSniff.php', 
 //            
 //            'Rudger/Sniffs/Files/LineEndingsSniff.php', 
